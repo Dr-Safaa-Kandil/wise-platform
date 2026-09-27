@@ -1,0 +1,231 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+}
+
+/* شريط الأخبار العلوي المتحرك RSS */
+.news-ticker {
+    background: #1a365d;
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    overflow: hidden;
+    white-space: nowrap;
+    box-sizing: border-box;
+}
+.ticker-content {
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker 25s linear infinite;
+}
+@keyframes ticker {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
+
+/* شريط الأدوات العلوية (دليل الاستخدام والبحث) */
+.top-utilities {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: #e2e8f0;
+    border-bottom: 1px solid #cbd5e0;
+}
+.utility-btn {
+    background: #3182ce;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+.utility-btn:hover { background: #2b6cb0; }
+.search-box input {
+    padding: 6px 12px;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    width: 220px;
+    font-size: 0.85rem;
+}
+
+/* نافذة الدليل المنبثقة */
+.tour-modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+.tour-content {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+    text-align: right;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.tour-content h3 { margin-top: 0; color: #1a365d; }
+.tour-content p { font-size: 0.9rem; margin: 8px 0; color: #555; }
+
+.platform-header {
+    text-align: center;
+    padding: 20px 20px 10px;
+}
+.platform-header h1 {
+    color: #1a365d;
+    margin-bottom: 5px;
+}
+.subtitle {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* تبويبات الـ SPA والواجهات */
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0;
+}
+.tab-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #e2e8f0;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.tab-btn.active {
+    background-color: #3182ce;
+    color: white;
+}
+
+.main-content {
+    max-width: 900px;
+    margin: 20px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.tab-pane { display: none; }
+.tab-pane.active { display: block; }
+
+.promo-section {
+    text-align: center;
+    margin-bottom: 25px;
+}
+.promo-video {
+    width: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    margin-bottom: 15px;
+}
+
+/* الصلاحيات والأدوار */
+.roles-section {
+    margin-top: 25px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+.roles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+.role-card {
+    background: #f8fafc;
+    border: 1px solid #cbd5e0;
+    padding: 15px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+.role-card:hover {
+    background: #ebf8ff;
+    border-color: #3182ce;
+}
+
+/* الأقسام التشويقية المتسلسلة */
+.teaser-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 25px 0 15px;
+}
+.teaser-btn {
+    padding: 8px 15px;
+    background: #edf2f7;
+    border: 1px solid #cbd5e0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.teaser-btn.active {
+    background: #2b6cb0;
+    color: #fff;
+}
+.teaser-pane {
+    display: none;
+    background: #fdfdfd;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 6px;
+}
+.teaser-pane.active {
+    display: block;
+}
+
+.platform-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    flex-wrap: wrap;
+}
+.nav-link {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #3182ce;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.nav-link:hover { background-color: #2b6cb0; }
+.external-link { background-color: #2f855a; }
+.external-link:hover { background-color: #276749; }
+
+.card-clean {
+    background: #fdfdfd;
+    border: 1px solid #e2e8f0;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+/* قسم اتصل بنا */
+.contact-section {
+    margin-top: 35px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    text-align: center;
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 6px;
+}
+.contact-section h3 { color: #1a365d; margin-top: 0; }
