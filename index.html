@@ -3,38 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة Wise - منظومة التدريب الإلكتروني والذكاء الاصطناعي</title>
+    <title>منصة Wise - منصة للخدمات البرمجية الذكية والخدمات التدريبية</title>
+    <meta name="description" content="منصة Wise الرقمية الموحدة لخدمات الذكاء الاصطناعي SaaS ومنظومة التدريب المعياري TaaS.">
+    <meta name="keywords" content="Wise Platform, SaaS, TaaS, AI Apps, eTraining, تدريب إلكتروني, تطبيقات ذكية">
+    <meta name="author" content="Safaa Rizk Kandil">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
+    <!-- شريط إخباري متحرك RSS -->
+    <div class="news-ticker">
+        <div class="ticker-content">
+            إطلاق النسخة المحدثة لمنصة Wise للخدمات البرمجية والتدريبية • تفعيل أنظمة الذكاء الاصطناعي وخدمات SaaS المتقدمة • انضم الآن لمنظومة التدريب المعياري TaaS •
+        </div>
+    </div>
+
+    <!-- شريط الأدوات العلوية السريعة (دليل الاستخدام والبحث) -->
+    <div class="top-utilities">
+        <button class="utility-btn" onclick="toggleTour()">📖 دليل الاستخدام السريع</button>
+        <div class="search-box">
+            <input type="text" id="quickSearchInput" placeholder="بحث سريع عن خدمة أو أداة..." onkeyup="performQuickSearch()">
+        </div>
+    </div>
+
+    <!-- نافذة دليل الاستخدام (مخفية افتراضياً) -->
+    <div id="tourModal" class="tour-modal">
+        <div class="tour-content">
+            <h3>دليل الاستخدام السريع لمنصة Wise</h3>
+            <p>1. استخدم تبويبات الواجهات (عربي/إنجليزي) لتغيير لغة العرض بالكامل.</p>
+            <p>2. تصفح الأقسام التشويقية (جديد التقنية، القصص، المسابقات) بالنقر عليها تباعاً.</p>
+            <p>3. حدد صلاحيتك (مستكشف، مشترٍ، متدرب) للوصول المخصص.</p>
+            <button class="utility-btn" onclick="toggleTour()" style="margin-top:10px;">إغلاق الدليل</button>
+        </div>
+    </div>
+
     <header class="platform-header">
-        <h1>منصة Wise المتكاملة</h1>
-        <p class="subtitle">الحلول البرمجية الذكية ونظم التدريب المعياري المتقدمة (TaaS)</p>
+        <h1>منصة Wise</h1>
+        <p class="subtitle">البوابة الرقمية الموحدة للخدمات البرمجية والتدريبية</p>
     </header>
 
+    <!-- نظام التبويبات للواجهات (SPA Tabs) -->
+    <div class="tabs-container">
+        <button class="tab-btn active" onclick="switchTab('ar')">الواجهة العربية</button>
+        <button class="tab-btn" onclick="switchTab('en')">English Interface</button>
+    </div>
+
     <main class="main-content">
-        <!-- قسم الترحيب والرسالة المشوقة للتجربة المباشرة -->
-        <div class="card-clean" style="text-align: center; background: linear-gradient(135deg, #f8fafc 0%, #ebf8ff 100%); border: 1px solid #3182ce; padding: 35px; border-radius: 8px;">
-            <h2 style="color: #1a365d; margin-top: 0;">اكتشف القوة التشغيلية لنظام المحاسبة بالذكاء الاصطناعي الآن</h2>
-            <p style="color: #4a5568; font-size: 1.05rem; max-width: 700px; margin: 15px auto; line-height: 1.6;">
-                انتقل فوراً لتجربة النموذج الأولي الجاهز لنظام المحاسبة الآلية وتحليل القوائم المالية وفق المعايير المحاسبية الدولية، واختبر دقة مراجعة الحسابات ودعم القرار الاستثماري بكفاءة عالية.
-            </p>
-            <div style="margin-top: 25px;">
-                <a href="ai-acc/frontend/index.html" class="nav-link" style="background-color: #3182ce; color: #fff; padding: 12px 25px; font-size: 1.05rem; border-radius: 6px; text-decoration: none; display: inline-block; font-weight: bold; box-shadow: 0 4px 6px rgba(49,130,206,0.2);">
-                    🚀 ابدأ تجربة نظام AI-ACC الحي الآن
-                </a>
+        <!-- الواجهة العربية -->
+        <div id="tab-ar" class="tab-pane active searchable-item">
+            <div class="promo-section">
+                <video autoplay muted loop playsinline class="promo-video">
+                    <source src="assets/videos/arabic_promo.mp4" type="video/mp4">
+                    متصفحك لا يدعم عرض الفيديو.
+                </video>
+                <h2>أهلاً بك في المستقبل الرقمي</h2>
+                <p>حلول تقنية ذكية مصممة خصيصاً لتطوير أعمالك بكفاءة عالية.</p>
             </div>
         </div>
 
-        <!-- ترويسة التنقل الرئيسية لبقية أقسام المنصة -->
-        <div class="platform-nav" style="margin-top: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
-            <a href="ai_apps.html" class="nav-link" style="text-align: center; background: #2b6cb0;">بوابة تطبيقات الذكاء الاصطناعي (SaaS)</a>
-            <a href="etraining.html" class="nav-link" style="text-align: center; background: #2f855a;">بوابة التدريب الإلكتروني ومعايير TaaS</a>
+        <!-- الواجهة الإنجليزية -->
+        <div id="tab-en" class="tab-pane searchable-item" dir="ltr">
+            <div class="promo-section">
+                <video autoplay muted loop playsinline class="promo-video">
+                    <source src="assets/videos/english_promo.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <h2>Welcome to Wise Platform</h2>
+                <p>Empowering your digital business with seamless innovative solutions.</p>
+            </div>
         </div>
+
+        <!-- الأقسام التشويقية المتسلسلة -->
+        <div class="teaser-nav">
+            <button class="teaser-btn active" onclick="showTeaser('tech-news', event)">جديد التقنية</button>
+            <button class="teaser-btn" onclick="showTeaser('stories', event)">القصص</button>
+            <button class="teaser-btn" onclick="showTeaser('competitions', event)">المسابقات</button>
+        </div>
+
+        <div id="tech-news" class="teaser-pane active searchable-item">
+            <h3>جديد التقنية</h3>
+            <p>استعراض تفصيلي لأحدث الأدوات الذكية، أحدث إصدارات تقنيات الـ SaaS والـ TaaS، وبحوث مختصرة لدعم الأداء الرقمي.</p>
+        </div>
+        <div id="stories" class="teaser-pane searchable-item">
+            <h3>قصص النجاح الرقمي</h3>
+            <p>تجارب عملية ملهمة حول تطبيق الأنظمة البرمجية الحديثة وتحول المؤسسات نحو الكفاءة التشغيلية.</p>
+        </div>
+        <div id="competitions" class="teaser-pane searchable-item">
+            <h3>المسابقات والتحديات التقنية</h3>
+            <p>شارك في التحديات البرمجية الأسبوعية وتطوير الحلول الذكية لاكتساب خبرات وتتويج مهاراتك.</p>
+        </div>
+
+        <!-- لوحة اختيار صلاحيات الدخول -->
+        <section class="roles-section">
+            <h3>حدد صلاحية الدخول للمنصة:</h3>
+            <div class="roles-grid">
+                <div class="role-card" onclick="selectRole('explorer')">
+                    <h4>مستكشف</h4>
+                    <p>استعراض عام لإمكانات المنصة والخدمات.</p>
+                </div>
+                <div class="role-card" onclick="selectRole('buyer')">
+                    <h4>مستفيد / مشترٍ</h4>
+                    <p>إدارة طلبات واشتراكات خدمات الـ SaaS.</p>
+                </div>
+                <div class="role-card" onclick="selectRole('trainee')">
+                    <h4>متدرب</h4>
+                    <p>متابعة البرامج التدريبية ومنظومة TaaS.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- روابط التنقل الأساسية -->
+        <nav class="platform-nav">
+            <a href="ai_apps.html" class="nav-link">تطبيقات الذكاء الاصطناعي (SaaS)</a>
+            <a href="etraining.html" class="nav-link">التدريب الإلكتروني (TaaS)</a>
+            <a href="ai-acc/frontend/index.html" class="nav-link external-link">التطبيق الحي الأول (ai-acc) ↗</a>
+        </nav>
+
+        <!-- قسم الدعم الفني والأسئلة الشائعة (FAQ) -->
+        <section id="faq-section" class="support-section searchable-item">
+            <h3>الدعم الفني والأسئلة الشائعة</h3>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">ما هي خدمات SaaS المقدمة عبر المنصة؟</button>
+                <div class="faq-answer">
+                    <p>هي تطبيقات ذكية مصممة لتقديم حلول برمجية جاهزة للتشغيل والاستخدام الفوري لإدارة الأعمال بدقة عالية.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">كيف تعمل منظومة التدريب المعياري TaaS؟</button>
+                <div class="faq-answer">
+                    <p>تعتمد منظومة Trainware as a Service على توفير وحدات تدريبية رقمية معيارية قابلة للدمج والتطوير المهني بسهولة.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <button class="faq-question" onclick="toggleFaq(this)">كيف يمكنني البدء كمستفيد أو متدرب؟</button>
+                <div class="faq-answer">
+                    <p>يمكنك تحديد صلاحية الدخول من قسم الصلاحيات بالأعلى، أو الانتقال المباشر للخدمة المطلوبة عبر روابط التنقل.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم اتصل بنا -->
+        <section id="contact-us" class="contact-section searchable-item">
+            <h3>اتصل بنا</h3>
+            <p>للاستفسارات والدعم الفني والتعاون الاستراتيجي:</p>
+            <p><strong>البريد الإلكتروني:</strong> support@wise-platform.com</p>
+        </section>
     </main>
 
-    <footer style="text-align: center; margin-top: 40px; padding: 20px; color: #718096; font-size: 0.9rem; border-top: 1px solid #e2e8f0;">
-        جميع الحقوق محفوظة - منصة Wise للتطوير المهني والتقني 2026
-    </footer>
+    <script src="assets/js/app.js"></script>
 </body>
 </html>

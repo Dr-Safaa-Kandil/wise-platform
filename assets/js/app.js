@@ -1,4 +1,4 @@
-// تبديل تبويبات الواجهات
+// تبديل تبويبات الواجهات (عربي / إنجليزي)
 function switchTab(lang) {
     const tabs = document.querySelectorAll('.tab-btn');
     const panes = document.querySelectorAll('.tab-pane');
@@ -15,7 +15,7 @@ function switchTab(lang) {
     }
 }
 
-// التحكم بالأقسام التشويقية
+// التحكم بالأقسام التشويقية المتسلسلة
 function showTeaser(sectionId, event) {
     const btns = document.querySelectorAll('.teaser-btn');
     const panes = document.querySelectorAll('.teaser-pane');
@@ -27,7 +27,7 @@ function showTeaser(sectionId, event) {
     document.getElementById(sectionId).classList.add('active');
 }
 
-// محاكاة اختيار الصلاحيات
+// محاكاة اختيار الصلاحيات وتأكيدها للمستخدم
 function selectRole(role) {
     const roles = {
         'explorer': 'مستكشف (Explorer)',
@@ -37,9 +37,10 @@ function selectRole(role) {
     alert('تم اعتماد صلاحية الدخول بنجاح كـ: ' + roles[role]);
 }
 
-// إظهار وإخفاء دليل الاستخدام السريع (Tour)
+// إظهار وإخفاء نافذة دليل الاستخدام السريع (Tour Modal)
 function toggleTour() {
     const modal = document.getElementById('tourModal');
+    if (!modal) return;
     if (modal.style.display === 'flex') {
         modal.style.display = 'none';
     } else {
@@ -47,9 +48,12 @@ function toggleTour() {
     }
 }
 
-// محاكاة البحث السريع في عناصر الصفحة
+// محاكاة البحث السريع في عناصر الصفحة ديناميكياً
 function performQuickSearch() {
-    let input = document.getElementById('quickSearchInput').value.toLowerCase();
+    let inputField = document.getElementById('quickSearchInput');
+    if (!inputField) return;
+    
+    let input = inputField.value.toLowerCase().trim();
     let items = document.querySelectorAll('.searchable-item, .role-card');
     
     items.forEach(item => {
