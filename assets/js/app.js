@@ -74,3 +74,15 @@ function performQuickSearch() {
         }
     });
 }
+
+// التحكم بعرض وإخفاء إجابات الأسئلة الشائعة (FAQ)
+function toggleFaq(button) {
+    const answer = button.nextElementSibling;
+    if (answer) {
+        if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+        } else {
+            answer.style.display = 'block';
+        }
+    }
+}
