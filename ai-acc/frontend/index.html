@@ -3,162 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تطبيق المحاسبة بالذكاء الاصطناعي (AI-Acc) - منصة Wise</title>
-    <link rel="stylesheet" href="../../assets/css/style.css">
+    <title>منصة Wise الرقمية | الحلول المحاسبية والتدريبية الذكية (TaaS)</title>
+    <link rel="stylesheet" href="assets/css/style.css">
     <style>
-        .acc-container { max-width: 1000px; margin: 20px auto; background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .top-tabs { display: flex; gap: 10px; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .acc-tab-btn { background: #edf2f7; border: none; padding: 10px 18px; border-radius: 5px; cursor: pointer; font-weight: bold; color: #2d3748; }
-        .acc-tab-btn.active { background: #3182ce; color: #fff; }
-        .tab-section { display: none; }
-        .tab-section.active { display: block; }
-        .grid-comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px; }
-        @media (max-width: 768px) { .grid-comparison { grid-template-columns: 1fr; } }
-        .box-pane { background: #f8fafc; border: 1px solid #cbd5e0; padding: 15px; border-radius: 6px; }
-        .metric-card { background: #fdfdfd; border: 1px solid #e2e8f0; padding: 15px; border-radius: 6px; margin-bottom: 15px; }
-        .formula-box { background: #edf2f7; padding: 8px 12px; border-radius: 4px; font-family: monospace; font-size: 0.9rem; margin: 8px 0; color: #2b6cb0; }
-        .select-styled { width: 100%; padding: 8px; border: 1px solid #cbd5e0; border-radius: 4px; margin-top: 5px; margin-bottom: 15px; }
+        :root {
+            --primary-color: #3182ce;
+            --primary-dark: #2b6cb0;
+            --bg-light: #f8fafc;
+            --border-color: #cbd5e0;
+            --text-main: #2d3748;
+        }
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+        .platform-header {
+            background: linear-gradient(135deg, #1a365d, var(--primary-dark));
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+        }
+        .platform-header h1 {
+            margin: 0 0 10px 0;
+            font-size: 1.8rem;
+        }
+        .platform-header .subtitle {
+            margin: 0;
+            font-size: 1.05rem;
+            opacity: 0.9;
+        }
+        .main-container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        .hero-section {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .action-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.2s ease;
+        }
+        .action-btn:hover {
+            background: var(--primary-dark);
+        }
+        .radar-section {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .radar-title {
+            color: #1a365d;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .radar-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+        .radar-item h4 {
+            margin: 0 0 8px 0;
+            color: var(--primary-dark);
+        }
+        .radar-item p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
     </style>
 </head>
 <body>
+
     <header class="platform-header">
-        <h1>تطبيق المحاسبة بالذكاء الاصطناعي (AI-Acc)</h1>
-        <p class="subtitle">المنظومة المالية المتقدمة لدعم اتخاذ القرار وفق معايير المحاسبة الدولية</p>
+        <h1>منصة Wise الرقمية</h1>
+        <p class="subtitle">الحلول المحاسبية والتدريبية الذكية لقطاع الأعمال والتجارة الإلكترونية (TaaS)</p>
     </header>
 
-    <!-- تبويبات التنقل العلوية للتطبيق (تشمل تبويب المعايير المحاسبية) -->
-    <div class="acc-container">
-        <div class="top-tabs">
-            <button class="acc-tab-btn active" onclick="switchAccTab('accounts', event)">تخطيط الحسابات والقوائم</button>
-            <button class="acc-tab-btn" onclick="switchAccTab('metrics', event)">المؤشرات المالية للتجارة الإلكترونية</button>
-            <button class="acc-tab-btn" onclick="switchAccTab('standards', event)">المعايير المحاسبية الدولية</button>
-        </div>
-
-        <!-- القسم الأول: خيارات الحسابات وتأثيرها على القوائم المحاسبية (قبل وبعد) -->
-        <div id="section-accounts" class="tab-section active">
-            <h2>محاكاة تأثير إدخال الحسابات على القوائم المالية</h2>
-            <p>اختر بنداً محاسبياً إضافياً لملاحظة التغيير الدقيق في القوائم الناتجة (تُعرض كل قائمة بشكل مستقل تماماً لدقة المراجعة):</p>
+    <div class="main-container">
+        <!-- قسم الترحيب وزر التوجيه للنظام المحاسبي المستقل -->
+        <div class="hero-section">
+            <h2>المنظومة المالية المتقدمة لدعم اتخاذ القرار</h2>
+            <p>استكشف قدرات الذكاء الاصطناعي في تحليل مؤشرات السيولة، إعداد شجرة الحسابات، وتقييم الأداء المالي للمشاريع.</p>
             
-            <label for="accountSelect"><strong>اختر بند الحساب الإضافي:</strong></label>
-            <select id="accountSelect" class="select-styled" onchange="updateAccountingSimulation()">
-                <option value="none">-- اختر الحساب لمراجعة النتيجة --</option>
-                <option value="marketing">إضافة مصروفات التسويق الرقمي وإعلانات السوشيال ميديا</option>
-                <option value="depreciation">إضافة مصروف إهلاك الأصول الرقمية والبرمجيات</option>
-                <option value="inventory">إضافة مخزون البضائع المتاحة للبيع الإلكتروني</option>
-            </select>
-
-            <div class="grid-comparison">
-                <div class="box-pane">
-                    <h3>القائمة المحاسبية (قبل التعديل)</h3>
-                    <div id="beforeState" style="color: #4a5568; line-height: 1.6;">
-                        <p><strong>قائمة الدخل:</strong> الإيرادات الافتراضية - التكاليف الأساسية = صافي الربح الأولي.</p>
-                        <p><strong>قائمة المركز المالي:</strong> الأصول المتداولة والخصوم في مستواها التأسيسي الصامت.</p>
-                    </div>
-                </div>
-                <div class="box-pane" style="background: #ebf8ff; border-color: #3182ce;">
-                    <h3>القائمة المحاسبية (بعد التعديل والمراجعة)</h3>
-                    <div id="afterState" style="color: #2b6cb0; line-height: 1.6;">
-                        <p>الرجاء اختيار بند الحساب أعلاه لملاحظة التغيير المفصل والتحديث الفوري في القوائم المالية الناتجة.</p>
-                    </div>
-                </div>
-            </div>
+            <!-- زر الانتقال الفوري لرابط نظام AI-Acc المستقل على Vercel -->
+            <a href="https://ai-acc-wise.vercel.app/" target="_blank" rel="noopener noreferrer" class="action-btn">
+                تجربة النظام الذكي للمحاسبة المالية AI-Acc
+            </a>
         </div>
 
-        <!-- القسم الثاني: المؤشرات المالية الشهيرة في التجارة الإلكترونية مع المعادلات والرسوم -->
-        <div id="section-metrics" class="tab-section">
-            <h2>المؤشرات المالية الحيوية لدعم قرار الاستثمار في التجارة الإلكترونية</h2>
-            <p>مؤشرات معيارية دقيقة مصحوبة بطريقة الحساب والتحليل المالي لدعم كفاءة المشروع:</p>
-
-            <div class="metric-card">
-                <h4>1. تكلفة اكتساب العميل (Customer Acquisition Cost - CAC)</h4>
-                <p>تقيس إجمالي الإنفاق التسويقي والتشغيلي اللازم لاكتساب عميل جديد واحد خلال فترة زمنية محددة.</p>
-                <div class="formula-box">معادلة الحساب: إجمالي مصاريف التسويق والإعلان ÷ عدد العملاء الجدد المكتسبين</div>
-                <p><strong>التوجيه الاستثماري:</strong> كلما انخفضت هذه التكلفة مقارنة بالقيمة الدائمة للعميل، زادت ربحية المنصة.</p>
+        <!-- قسم رادار التقنية والذكاء الاصطناعي -->
+        <div class="radar-section">
+            <h3 class="radar-title">رادار التقنية والذكاء الاصطناعي</h3>
+            
+            <div class="radar-item">
+                <h4>أبحاث IEEE: كفاءة أمن المعاملات السحابية</h4>
+                <p>دور النظم اللحظية في تقليص التباين المالي وتحقيق موثوقية عالية في المعالجة الآلية.</p>
             </div>
 
-            <div class="metric-card">
-                <h4>2. القيمة الدائمة للعميل (Customer Lifetime Value - LTV)</h4>
-                <p>إجمالي صافي الربح المتوقع تحقيقه من العميل طوال فترة تعامله واستمراره مع المنصة.</p>
-                <div class="formula-box">معادلة الحساب: (متوسط قيمة الطلب × معدل تكرار الشراء) × متوسط عمر الاحتفاظ بالعميل</div>
-                <p><strong>التوجيه الاستثماري:</strong> يُشترط استثمارياً أن تتجاوز قيمة LTV تكلفة الـ CAC بمعدل لا يقل عن 3 أضعاف لضمان نمو مستدام.</p>
+            <div class="radar-item">
+                <h4>وكلاء الذكاء الاصطناعي في قطاع SaaS</h4>
+                <p>تحليل مؤشرات السيولة ومعدلات النمو بشكل تلقائي ودقيق لتعزيز كفاءة المنصات الرقمية.</p>
             </div>
-
-            <div class="metric-card">
-                <h4>3. معدل العائد على الاستثمار الإعلاني (Return on Ad Spend - ROAS)</h4>
-                <p>يقيس الكفاءة المالية للحملات التسويقية والترويجية الرقمية.</p>
-                <div class="formula-box">معادلة الحساب: إجمالي الإيرادات الناتجة عن الحملات الإعلانية ÷ إجمالي تكلفة تلك الحملات</div>
-                <p><strong>التوجيه الاستثماري:</strong> مؤشر حاسم للتحقق من الجدوى الاقتصادية الفورية لأنشطة الـ SaaS والـ TaaS.</p>
-            </div>
-        </div>
-
-        <!-- القسم الثالث: المعايير المحاسبية الدولية وشجرة الحسابات المرجعية -->
-        <div id="section-standards" class="tab-section">
-            <h2>المعايير المحاسبية الدولية وشجرة الحسابات المرجعية</h2>
-            <p>روابط مرجعية موثوقة وهيكلية توجيهية لصاحب المشروع ومنشئ المحتوى لتوحيد تسمية الحسابات:</p>
-
-            <div class="box-pane" style="margin-bottom: 15px;">
-                <h4 style="color: #1a365d; margin-top: 0;">المراجع الدولية المعتمدة:</h4>
-                <ul style="line-height: 1.8;">
-                    <li><a href="https://www.ifrs.org" target="_blank" rel="noopener noreferrer" style="color: #3182ce; text-decoration: none;">موقع مؤسسة المعايير الدولية للتقارير المالية (IFRS Foundation) - باللغة الإنجليزية ↗</a></li>
-                    <li><a href="https://www.iasplus.com" target="_blank" rel="noopener noreferrer" style="color: #3182ce; text-decoration: none;">بوابة المعايير الدولية للترجمة والمراجعة (IAS Plus) ↗</a></li>
-                </ul>
-            </div>
-
-            <div class="box-pane">
-                <h4 style="color: #1a365d; margin-top: 0;">الهيكلية التوجيهية لشجرة الحسابات المعيارية (المرجع الدلالي للمشروع):</h4>
-                <p style="font-size: 0.9rem; color: #4a5568;">تصنيف رقمي قياسي مكون من ستة أرقام لضمان التوافق مع أنظمة سوبابيس (Supabase) والربط المالي:</p>
-                <ul style="font-family: monospace; font-size: 0.9rem; line-height: 1.7; color: #2d3748; padding-right: 20px;">
-                    <li>100000 - الأصول (Assets)</li>
-                    <li>200000 - الالتزامات والخصوم (Liabilities)</li>
-                    <li>300000 - حقوق الملكية (Equity)</li>
-                    <li>400000 - الإيرادات (Revenues)</li>
-                    <li>500000 - المصروفات التشغيلية والتسويقية (Operating & Marketing Expenses)</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="platform-nav" style="margin-top: 30px; text-align: center;">
-            <a href="../../index.html" class="nav-link" style="background:#555;">العودة إلى الصفحة الرئيسية للمنصة</a>
         </div>
     </div>
 
-    <script>
-        // دالة التبويبات الداخلية لتطبيق AI-Acc
-        function switchAccTab(tabId, event) {
-            const sections = document.querySelectorAll('.tab-section');
-            const buttons = document.querySelectorAll('.acc-tab-btn');
-
-            sections.forEach(sec => sec.classList.remove('active'));
-            buttons.forEach(btn => btn.classList.remove('active'));
-
-            document.getElementById('section-' + tabId).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-
-        // محاكاة تأثير تغيير الحسابات على القوائم المحاسبية (قبل وبعد)
-        function updateAccountingSimulation() {
-            let val = document.getElementById('accountSelect').value;
-            let afterDiv = document.getElementById('afterState');
-
-            if (val === 'marketing') {
-                afterDiv.innerHTML = `
-                    <p><strong>قائمة الدخل (بعد التعديل):</strong> تم خصم مصروفات التسويق الرقمي بوضوح، مما أدى إلى انخفاض صافي الربح التشغيلي بمقدار قيمة الحملة، مع ظهور أثرها المباشر في تكلفة الإيرادات.</p>
-                    <p><strong>قائمة المركز المالي (بعد التعديل):</strong> انخفض رصيد النقدية والبنك بمقدار المصروف المسدد، مع تحديث الحسابات الدائنة ذات الصلة.</p>
-                `;
-            } else if (val === 'depreciation') {
-                afterDiv.innerHTML = `
-                    <p><strong>قائمة الدخل (بعد التعديل):</strong> تم إدراج مصروف الإهلاك كعبء تشغيلي غير نقدي، مما خفض الدخل الخاضع للضريبة وفق المعايير المحاسبية.</p>
-                    <p><strong>قائمة المركز المالي (بعد التعديل):</strong> انخفضت قيمة الأصول الثابتة الصافية بمقدار مجمع الإهلاك السنوي المحسوب.</p>
-                `;
-            } else if (val === 'inventory') {
-                afterDiv.innerHTML = `
-                    <p><strong>قائمة الدخل (بعد التعديل):</strong> لم تأثر قائمة الدخل بشكل مباشر حتى تمام البيع، ولكن تكلفة البضائع المتاحة ظهرت كالتزام وموجود.</p>
-                    <p><strong>قائمة المركز المالي (بعد التعديل):</strong> زاد بند الأصول المتداولة (المخزون السلعي) مع توثيق الالتزام المرتبط بسداده للموردين.</p>
-                `;
-            } else {
-                afterDiv.innerHTML = `<p>الرجاء اختيار بند الحساب أعلاه لملاحظة التغيير المفصل والتحديث الفوري في القوائم المالية الناتجة.</p>`;
-            }
-        }
-    </script>
 </body>
 </html>
