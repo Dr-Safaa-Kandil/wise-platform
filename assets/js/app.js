@@ -1,3 +1,12 @@
+// تنظيف شريط العنوان من بارامترات التتبع مثل utm_source فور تحميل المنصة
+window.addEventListener('DOMContentLoaded', () => {
+    const url = new URL(window.location.href);
+    if (url.searchParams.has('utm_source')) {
+        url.searchParams.delete('utm_source');
+        window.history.replaceState({}, document.title, url.pathname + url.search);
+    }
+});
+
 // تبديل تبويبات الواجهات (عربي / إنجليزي)
 function switchTab(lang) {
     const tabs = document.querySelectorAll('.tab-btn');
